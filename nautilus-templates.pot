@@ -1,0 +1,49 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR ORGANIZATION
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-10-15 16:12+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: pygettext.py 1.5\n"
+
+
+#: templates.py:33
+msgid "Templates"
+msgstr ""
+
+#: templates.py:40 templates.py:75
+msgid "New Document"
+msgstr ""
+
+#: templates.py:46 templates.py:89
+msgid "New Spreadsheet"
+msgstr ""
+
+#: templates.py:54 templates.py:103
+msgid "New Presentation"
+msgstr ""
+
+#: templates.py:61 templates.py:119 templates.py:124
+msgid "New Textfile"
+msgstr ""
+
+#: templates.py:161
+msgid "Cancel"
+msgstr ""
+
+#: templates.py:167
+msgid "Create"
+msgstr ""
+
+#: templates.py:175
+msgid "Filename"
+msgstr ""
+
