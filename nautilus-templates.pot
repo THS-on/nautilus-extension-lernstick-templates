@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2019-10-15 16:12+0200\n"
+"POT-Creation-Date: 2019-10-16 11:10+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,35 +15,40 @@ msgstr ""
 "Generated-By: pygettext.py 1.5\n"
 
 
-#: templates.py:33
+#: usr/share/nautilus-python/extensions/templates.py:38
 msgid "Templates"
 msgstr ""
 
-#: templates.py:40 templates.py:75
+#: usr/share/nautilus-python/extensions/templates.py:45
+#: usr/share/nautilus-python/extensions/templates.py:80
 msgid "New Document"
 msgstr ""
 
-#: templates.py:46 templates.py:89
+#: usr/share/nautilus-python/extensions/templates.py:51
+#: usr/share/nautilus-python/extensions/templates.py:95
 msgid "New Spreadsheet"
 msgstr ""
 
-#: templates.py:54 templates.py:103
+#: usr/share/nautilus-python/extensions/templates.py:59
+#: usr/share/nautilus-python/extensions/templates.py:110
 msgid "New Presentation"
 msgstr ""
 
-#: templates.py:61 templates.py:119 templates.py:124
+#: usr/share/nautilus-python/extensions/templates.py:66
+#: usr/share/nautilus-python/extensions/templates.py:127
+#: usr/share/nautilus-python/extensions/templates.py:133
 msgid "New Textfile"
 msgstr ""
 
-#: templates.py:161
+#: usr/share/nautilus-python/extensions/templates.py:185
 msgid "Cancel"
 msgstr ""
 
-#: templates.py:167
+#: usr/share/nautilus-python/extensions/templates.py:191
 msgid "Create"
 msgstr ""
 
-#: templates.py:175
+#: usr/share/nautilus-python/extensions/templates.py:199
 msgid "Filename"
 msgstr ""
 

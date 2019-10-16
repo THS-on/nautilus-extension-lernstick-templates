@@ -1,0 +1,2 @@
+pygettext.py -d nautilus-templates -o nautilus-templates.pot usr/share/nautilus-python/extensions/templates.py
+msgmerge --update po/de/nautilus-templates.po nautilus-templates.pot

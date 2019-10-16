@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2019-10-15 16:12+0200\n"
+"POT-Creation-Date: 2019-10-15 23:49+0200\n"
 "PO-Revision-Date: 2019-10-15 13:45+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -17,34 +17,39 @@ msgstr ""
 "X-Generator: Poedit 2.2.1\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: templates.py:33
+#: usr/share/nautilus-python/extensions/templates.py:38
 msgid "Templates"
 msgstr "Vorlagen"
 
-#: templates.py:40 templates.py:75
+#: usr/share/nautilus-python/extensions/templates.py:45
+#: usr/share/nautilus-python/extensions/templates.py:80
 msgid "New Document"
 msgstr "Neues Dokument"
 
-#: templates.py:46 templates.py:89
+#: usr/share/nautilus-python/extensions/templates.py:51
+#: usr/share/nautilus-python/extensions/templates.py:95
 msgid "New Spreadsheet"
 msgstr "Neue Tabelle"
 
-#: templates.py:54 templates.py:103
+#: usr/share/nautilus-python/extensions/templates.py:59
+#: usr/share/nautilus-python/extensions/templates.py:110
 msgid "New Presentation"
 msgstr "Neue Präsentation"
 
-#: templates.py:61 templates.py:119 templates.py:124
+#: usr/share/nautilus-python/extensions/templates.py:66
+#: usr/share/nautilus-python/extensions/templates.py:127
+#: usr/share/nautilus-python/extensions/templates.py:133
 msgid "New Textfile"
 msgstr "Neue Textdatei"
 
-#: templates.py:161
+#: usr/share/nautilus-python/extensions/templates.py:185
 msgid "Cancel"
 msgstr "Abbrechen"
 
-#: templates.py:167
+#: usr/share/nautilus-python/extensions/templates.py:191
 msgid "Create"
 msgstr "Erstellen"
 
-#: templates.py:175
+#: usr/share/nautilus-python/extensions/templates.py:199
 msgid "Filename"
 msgstr "Dateiname"
