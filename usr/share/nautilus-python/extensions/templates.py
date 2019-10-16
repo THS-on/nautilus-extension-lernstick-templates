@@ -4,7 +4,10 @@ from pathlib import Path
 import gi
 
 from gi.repository import Gtk
+from gi.repository.Gdk import WindowTypeHint
 from gi.repository import Nautilus, GObject
+import locale
+from odf import style
 from odf.opendocument import (
     OpenDocumentText,
     OpenDocumentPresentation,
@@ -20,6 +23,8 @@ _ = t.gettext
 class TemplateMenuProvider(GObject.GObject, Nautilus.MenuProvider):
     """This class provides the menu entry for nautilus"""
 
+    window = None
+
     def __init__(self):
         pass
 
@@ -27,7 +32,7 @@ class TemplateMenuProvider(GObject.GObject, Nautilus.MenuProvider):
         pass
 
     def get_background_items(self, window, file):
-
+        self.window = window
         menuitem = Nautilus.MenuItem(
             name="TemplateMenuProvider::Templates",
             label=_("Templates"),
@@ -79,9 +84,10 @@ class TemplateMenuProvider(GObject.GObject, Nautilus.MenuProvider):
 
         def create_function(full_path):
             textdoc = OpenDocumentText()
+            textdoc.styles.addElement(self.build_default_style())
             textdoc.save(full_path)
 
-        CreateWindow(default_name, base_path, name, ext, create_function)
+        CreateWindow(default_name, base_path, name, ext, create_function, self.window)
         return True
 
     def create_ods(self, menu, file):
@@ -93,9 +99,10 @@ class TemplateMenuProvider(GObject.GObject, Nautilus.MenuProvider):
 
         def create_function(full_path):
             textdoc = OpenDocumentSpreadsheet()
+            textdoc.styles.addElement(self.build_default_style())
             textdoc.save(full_path)
 
-        CreateWindow(default_name, base_path, name, ext, create_function)
+        CreateWindow(default_name, base_path, name, ext, create_function, self.window)
         return True
 
     def create_odp(self, menu, file):
@@ -107,9 +114,10 @@ class TemplateMenuProvider(GObject.GObject, Nautilus.MenuProvider):
 
         def create_function(full_path):
             textdoc = OpenDocumentPresentation()
+            textdoc.styles.addElement(self.build_default_style())
             textdoc.save(full_path)
 
-        CreateWindow(default_name, base_path, name, ext, create_function)
+        CreateWindow(default_name, base_path, name, ext, create_function, self.window)
         return True
 
     def create_txt(self, menu, file):
@@ -121,8 +129,21 @@ class TemplateMenuProvider(GObject.GObject, Nautilus.MenuProvider):
         def create_function(full_path):
             Path(full_path).touch()
 
-        CreateWindow(_("New Textfile"), base_path, name, ext, create_function)
+        CreateWindow(
+            _("New Textfile"), base_path, name, ext, create_function, self.window
+        )
         return True
+
+    def build_default_style(self):
+        """Creates default style for Libreoffice Documents"""
+        # Add the right language to the template
+        language_code = locale.getlocale()[0][:2]
+        country_code = locale.getlocale()[0][-2:]
+        default_style = style.DefaultStyle(family="paragraph")
+        default_style.addElement(
+            style.TextProperties(language=language_code, country=country_code)
+        )
+        return default_style
 
 
 class CreateWindow(Gtk.Window):
@@ -135,16 +156,19 @@ class CreateWindow(Gtk.Window):
     input = None  # Holds input field
     create_function = None  # This function is called to create the new file
 
-    def __init__(self, title, base_path, default_name, ext, create_function):
+    def __init__(
+        self, title, base_path, default_name, ext, create_function, parent=None
+    ):
         # Init window
         Gtk.Window.__init__(self, title=title + " (." + ext + ")")
         self.set_border_width(10)
         self.set_default_size(400, 1)
         self.set_deletable(False)
         self.set_resizable(False)
-        self.set_position(
-            Gtk.WindowPosition.CENTER
-        )  # I haven't figured out how to center it properly on the parent
+        self.set_type_hint(WindowTypeHint.DIALOG)
+        self.set_modal(True)
+        self.set_transient_for(parent)
+        self.set_position(Gtk.WindowPosition.CENTER_ON_PARENT)
 
         self.base_path = base_path
         self.default_name = default_name
